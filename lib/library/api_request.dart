@@ -19,7 +19,7 @@ class ApiRequest {
     _dio()
         .get(this.url, queryParameters: this.data)
         .then((value) => {
-              print("请求结果：==========>$value}"),
+              // print("请求结果：==========>$value}"),
               if (onSuccess != null) {onSuccess(value.data)}
             })
         .catchError((error) => {
@@ -36,7 +36,7 @@ class ApiRequest {
     _dio()
         .post(this.url, data: this.data)
         .then((value) => {
-              print("请求结果：==========>$value}"),
+              // print("请求结果：==========>$value}"),
               if (onSuccess != null) {onSuccess(value.data)}
             })
         .catchError((error) => {

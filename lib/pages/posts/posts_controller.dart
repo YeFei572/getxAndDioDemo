@@ -9,7 +9,7 @@ class PostsController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    PostsService().getPostsList(
+   /* PostsService().getPostsList(
       onSuccess: (posts) {
         print('==========> ${posts.length}');
         posts.map((e) => print(e.title));
@@ -21,6 +21,6 @@ class PostsController extends GetxController {
         isLoading = false;
         update();
       },
-    );
+    );*/
   }
 }
