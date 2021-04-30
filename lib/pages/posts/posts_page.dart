@@ -25,9 +25,7 @@ class PostsPage extends GetView<PostsController> {
                             subtitle: Text(controller.postsList[index].body)));
                   },
                   separatorBuilder: (context, index) {
-                    return Divider(
-                      // height: ScreenUtil().setWidth(4),
-                    );
+                    return Divider();
                   },
                 ));
           },

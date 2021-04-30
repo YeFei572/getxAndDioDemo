@@ -15,9 +15,11 @@ class ApiRequest {
       {Function() beforeSend,
       Function(dynamic data) onSuccess,
       Function(dynamic error) onError}) {
+    print("请求地址：==========>${this.url}");
     _dio()
         .get(this.url, queryParameters: this.data)
         .then((value) => {
+              print("请求结果：==========>$value}"),
               if (onSuccess != null) {onSuccess(value.data)}
             })
         .catchError((error) => {
@@ -30,9 +32,11 @@ class ApiRequest {
     Function(dynamic data) onSuccess,
     Function(dynamic error) onError,
   }) {
+    print("请求地址：==========>${this.url}");
     _dio()
         .post(this.url, data: this.data)
         .then((value) => {
+              print("请求结果：==========>$value}"),
               if (onSuccess != null) {onSuccess(value.data)}
             })
         .catchError((error) => {
