@@ -12,15 +12,23 @@ class HomeController extends GetxController {
   List<Fish> fishList = [];
   bool isLoading = true;
   int page = 1;
-  EasyRefreshController? easyRefreshController;
+  EasyRefreshController? refreshController;
 
   @override
   void onInit() {
     super.onInit();
+    refreshController = EasyRefreshController();
     this.getFishList();
   }
 
+  @override
+  void onClose() {
+    super.onClose();
+    refreshController?.dispose();
+  }
+
   void changeType(int index) {
+    this.page = 1;
     this.isLoading = true;
     update();
     this.currentIndex = index;
@@ -42,7 +50,7 @@ class HomeController extends GetxController {
   }
 
   void getFishList() {
-    FishService.getFishList().then((value) => {
+    FishService.getFishList(this.page).then((value) => {
           this.fishList.addAll(value),
           this.isLoading = false,
           update(),
