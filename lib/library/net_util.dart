@@ -41,7 +41,7 @@ Future request4GetWithToken(String urlPath, {queryParameters}) async {
 }
 
 Future request4PostWithToken(String urlPath,
-    {String method, queryParameters}) async {
+    {method, queryParameters}) async {
   try {
     Dio dio = new Dio();
     // SharedPreferences sp = await SharedPreferences.getInstance();
@@ -86,8 +86,8 @@ Future request4PostWithToken(String urlPath,
       throw Exception('接口错误');
     }
   } catch (e) {
-    String msg = e.response.data['message'];
-    Get.snackbar('网络错误', msg);
+    // String msg = e.response.data['message'];
+    Get.snackbar('网络错误', e.toString());
     print('网络错误: $e');
     return null;
   }

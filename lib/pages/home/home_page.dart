@@ -50,9 +50,9 @@ class HomePage extends GetView<HomeController> {
             itemBuilder: (context, int index) {
               String title;
               if (controller.currentIndex == 0) {
-                title = controller.fishList[index].title;
+                title = controller.fishList[index].title!;
               } else {
-                title = controller.feedList[index].title;
+                title = controller.feedList[index].title!;
               }
               return Container(
                 child: Column(

@@ -21,8 +21,8 @@ class PostsPage extends GetView<PostsController> {
                   itemBuilder: (context, index) {
                     return Container(
                         child: ListTile(
-                            title: Text(controller.postsList[index].title),
-                            subtitle: Text(controller.postsList[index].body)));
+                            title: Text(controller.postsList[index].title!),
+                            subtitle: Text(controller.postsList[index].body!)));
                   },
                   separatorBuilder: (context, index) {
                     return Divider();

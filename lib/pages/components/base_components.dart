@@ -7,10 +7,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class BaseComponent {
   static Widget titleComponent(String content,
-      {double size, double weight, Color color, Alignment alignment}) {
+      {size, weight, color, alignment}) {
     return Container(
       decoration:
-      BoxDecoration(border: Border.all(color: Colors.white.withOpacity(0))),
+          BoxDecoration(border: Border.all(color: Colors.white.withOpacity(0))),
       alignment: alignment ?? Alignment.bottomLeft,
       height: ScreenUtil().setWidth(20),
       child: Text(
@@ -24,10 +24,10 @@ class BaseComponent {
   }
 
   static Widget contentComponent(String content,
-      {double size, double weight, Color color}) {
+      { size,  weight,  color}) {
     return Container(
       decoration:
-      BoxDecoration(border: Border.all(color: Colors.white.withOpacity(0))),
+          BoxDecoration(border: Border.all(color: Colors.white.withOpacity(0))),
       alignment: Alignment.bottomLeft,
       height: ScreenUtil().setWidth(20),
       child: Text(
@@ -42,7 +42,7 @@ class BaseComponent {
 
   static Widget copyTitleAndContentComponent(
       BuildContext context, String title, String content,
-      {double height}) {
+      { height}) {
     return Container(
       width: double.infinity,
       child: Column(
@@ -67,7 +67,7 @@ class BaseComponent {
                           vertical: ScreenUtil().setWidth(1)),
                       decoration: BoxDecoration(
                           border:
-                          Border.all(width: 0.5, color: Colors.lightBlue),
+                              Border.all(width: 0.5, color: Colors.lightBlue),
                           borderRadius: BorderRadius.circular(
                             ScreenUtil().setWidth(5),
                           )),
@@ -91,7 +91,7 @@ class BaseComponent {
       height: ScreenUtil().setWidth(20),
       alignment: Alignment.bottomLeft,
       decoration:
-      BoxDecoration(border: Border.all(color: Colors.white.withOpacity(0))),
+          BoxDecoration(border: Border.all(color: Colors.white.withOpacity(0))),
       child: Row(
         children: [
           Container(
@@ -118,20 +118,20 @@ class BaseComponent {
 
   /// 自定义字体组件
   static Widget buildText(
-      String content, {
-        double size,
-        Color color,
-        FontWeight weight,
-        TextAlign textAlign,
-        int maxLine,
-      }) {
+    String content, {
+     size,
+     color,
+     weight,
+     textAlign,
+     maxLine,
+  }) {
     return Text(
       content,
       textAlign: textAlign ?? TextAlign.start,
       maxLines: maxLine == null ? null : maxLine,
       style: TextStyle(
         fontSize:
-        null != size ? ScreenUtil().setSp(size) : ScreenUtil().setSp(14),
+            null != size ? ScreenUtil().setSp(size) : ScreenUtil().setSp(14),
         color: null != color ? color : Colors.black,
         fontWeight: null != weight ? weight : FontWeight.normal,
       ),
@@ -139,18 +139,18 @@ class BaseComponent {
   }
 
   static Widget buildBtn(
-      BtnType type,
-      String title,
-      Function fun, {
-        EdgeInsets margin,
-        double fontSize,
-        double height,
-        double width,
-        FontWeight fontWeight,
-        Color bgColor,
-        Color borderColor,
-        Color foregroundColor,
-      }) {
+    BtnType type,
+    String title,
+    Function fun(), {
+     margin,
+     fontSize,
+     height,
+     width,
+     fontWeight,
+     bgColor,
+     borderColor,
+     foregroundColor,
+  }) {
     TextStyle textStyle = TextStyle(
       fontSize: fontSize == null
           ? ScreenUtil().setSp(14)
@@ -160,7 +160,7 @@ class BaseComponent {
 
     ButtonStyle buttonStyle = ButtonStyle(
       backgroundColor:
-      bgColor == null ? null : MaterialStateProperty.all(bgColor),
+          bgColor == null ? null : MaterialStateProperty.all(bgColor),
       foregroundColor: foregroundColor == null
           ? null
           : MaterialStateProperty.all(foregroundColor),

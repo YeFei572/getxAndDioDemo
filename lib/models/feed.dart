@@ -1,7 +1,7 @@
 /// id : "5e130f863b1b637545229a40"
 /// userId : "5adfd2da3b1b6304ffc998d0"
 /// title : "【现货】JC工作室 作品：1/4三档路飞"
-/// iconUrl : "123"
+/// iconUrl : "123123"
 /// userName : "摸鱼塘塘主"
 /// desc : "尺寸：总高1.1米"
 /// totalAmount : 42000.0
@@ -18,105 +18,91 @@
 /// reciprocationList : ["http://moyutang.oss-cn-shenzhen.aliyuncs.com/works/images/22308424.1578307304764.png"]
 /// hasFollow : false
 /// hasFavorite : false
+/// daysToProduct : 2
+/// designerType : "cartoon"
 /// accessStatus : 0
 /// userCount : 1
 /// minPrice : 4200.0
 
 class Feed {
-  String _id;
-  String _userId;
-  String _title;
-  String _iconUrl;
-  String _userName;
-  String _desc;
-  double _totalAmount;
-  String _coverPic;
-  List<String> _tags;
-  double _maturity;
-  int _favorites;
-  int _startAt;
-  int _endAt;
-  int _createAt;
-  String _status;
-  String _type;
-  List<String> _works;
-  List<String> _reciprocationList;
-  bool _hasFollow;
-  bool _hasFavorite;
-  int _accessStatus;
-  int _userCount;
-  double _minPrice;
+  String? _id;
+  String? _userId;
+  String? _title;
+  String? _iconUrl;
+  String? _userName;
+  String? _desc;
+  double? _totalAmount;
+  String? _coverPic;
+  List<String>? _tags;
+  double? _maturity;
+  int? _favorites;
+  int? _startAt;
+  int? _endAt;
+  int? _createAt;
+  String? _status;
+  String? _type;
+  List<String>? _works;
+  List<String>? _reciprocationList;
+  bool? _hasFollow;
+  bool? _hasFavorite;
+  int? _daysToProduct;
+  String? _designerType;
+  int? _accessStatus;
+  int? _userCount;
+  double? _minPrice;
 
-  String get id => _id;
+  String? get id => _id;
+  String? get userId => _userId;
+  String? get title => _title;
+  String? get iconUrl => _iconUrl;
+  String? get userName => _userName;
+  String? get desc => _desc;
+  double? get totalAmount => _totalAmount;
+  String? get coverPic => _coverPic;
+  List<String>? get tags => _tags;
+  double? get maturity => _maturity;
+  int? get favorites => _favorites;
+  int? get startAt => _startAt;
+  int? get endAt => _endAt;
+  int? get createAt => _createAt;
+  String? get status => _status;
+  String? get type => _type;
+  List<String>? get works => _works;
+  List<String>? get reciprocationList => _reciprocationList;
+  bool? get hasFollow => _hasFollow;
+  bool? get hasFavorite => _hasFavorite;
+  int? get daysToProduct => _daysToProduct;
+  String? get designerType => _designerType;
+  int? get accessStatus => _accessStatus;
+  int? get userCount => _userCount;
+  double? get minPrice => _minPrice;
 
-  String get userId => _userId;
-
-  String get title => _title;
-
-  String get iconUrl => _iconUrl;
-
-  String get userName => _userName;
-
-  String get desc => _desc;
-
-  double get totalAmount => _totalAmount;
-
-  String get coverPic => _coverPic;
-
-  List<String> get tags => _tags;
-
-  double get maturity => _maturity;
-
-  int get favorites => _favorites;
-
-  int get startAt => _startAt;
-
-  int get endAt => _endAt;
-
-  int get createAt => _createAt;
-
-  String get status => _status;
-
-  String get type => _type;
-
-  List<String> get works => _works;
-
-  List<String> get reciprocationList => _reciprocationList;
-
-  bool get hasFollow => _hasFollow;
-
-  bool get hasFavorite => _hasFavorite;
-
-  int get accessStatus => _accessStatus;
-
-  int get userCount => _userCount;
-
-  double get minPrice => _minPrice;
-
-  Feed(
-      {String id,
-      String userId,
-      String title,
-      String iconUrl,
-      String userName,
-      String desc,
-      double totalAmount,
-      String coverPic,
-      List<String> tags,
-      double maturity,
-      int favorites,
-      int startAt,
-      int endAt,
-      int createAt,
-      String status,
-      String type,
-      List<String> works,
-      List<String> reciprocationList,
-      bool hasFollow,
-      bool hasFavorite,
-      int accessStatus,
-      int userCount,
-      double minPrice}) {
+  Feed({
+      String? id, 
+      String? userId, 
+      String? title, 
+      String? iconUrl, 
+      String? userName, 
+      String? desc, 
+      double? totalAmount, 
+      String? coverPic, 
+      List<String>? tags, 
+      double? maturity, 
+      int? favorites, 
+      int? startAt, 
+      int? endAt, 
+      int? createAt, 
+      String? status, 
+      String? type, 
+      List<String>? works, 
+      List<String>? reciprocationList, 
+      bool? hasFollow, 
+      bool? hasFavorite, 
+      int? daysToProduct, 
+      String? designerType, 
+      int? accessStatus, 
+      int? userCount, 
+      double? minPrice}){
     _id = id;
     _userId = userId;
     _title = title;
@@ -137,10 +123,12 @@ class Feed {
     _reciprocationList = reciprocationList;
     _hasFollow = hasFollow;
     _hasFavorite = hasFavorite;
+    _daysToProduct = daysToProduct;
+    _designerType = designerType;
     _accessStatus = accessStatus;
     _userCount = userCount;
     _minPrice = minPrice;
-  }
+}
 
   Feed.fromJson(dynamic json) {
     _id = json["id"];
@@ -160,11 +148,11 @@ class Feed {
     _status = json["status"];
     _type = json["type"];
     _works = json["works"] != null ? json["works"].cast<String>() : [];
-    _reciprocationList = json["reciprocationList"] != null
-        ? json["reciprocationList"].cast<String>()
-        : [];
+    _reciprocationList = json["reciprocationList"] != null ? json["reciprocationList"].cast<String>() : [];
     _hasFollow = json["hasFollow"];
     _hasFavorite = json["hasFavorite"];
+    _daysToProduct = json["daysToProduct"];
+    _designerType = json["designerType"];
     _accessStatus = json["accessStatus"];
     _userCount = json["userCount"];
     _minPrice = json["minPrice"];
@@ -192,9 +180,12 @@ class Feed {
     map["reciprocationList"] = _reciprocationList;
     map["hasFollow"] = _hasFollow;
     map["hasFavorite"] = _hasFavorite;
+    map["daysToProduct"] = _daysToProduct;
+    map["designerType"] = _designerType;
     map["accessStatus"] = _accessStatus;
     map["userCount"] = _userCount;
     map["minPrice"] = _minPrice;
     return map;
   }
+
 }

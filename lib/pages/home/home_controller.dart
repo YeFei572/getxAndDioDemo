@@ -2,6 +2,7 @@ import 'package:demo01/models/feed.dart';
 import 'package:demo01/models/fish.dart';
 import 'package:demo01/pages/home/feed_service.dart';
 import 'package:demo01/pages/home/fish_service.dart';
+import 'package:flutter_easyrefresh/easy_refresh.dart';
 import 'package:get/get.dart';
 
 class HomeController extends GetxController {
@@ -10,6 +11,8 @@ class HomeController extends GetxController {
   List<Feed> feedList = [];
   List<Fish> fishList = [];
   bool isLoading = true;
+  int page = 1;
+  EasyRefreshController? easyRefreshController;
 
   @override
   void onInit() {
