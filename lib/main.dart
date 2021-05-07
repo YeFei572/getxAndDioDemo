@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:demo01/routes/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -8,12 +10,15 @@ import 'routes/app_routes.dart';
 import 'themes/app_theme.dart';
 
 void main() async {
-  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-    statusBarColor: Colors.white,
-    statusBarBrightness: Brightness.light,
-    statusBarIconBrightness: Brightness.dark,
-  ));
   runApp(MyApp());
+  /// 要在ui加载完毕后再去设计沉浸式页面
+  if (Platform.isAndroid) {
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+      statusBarColor: Colors.white,
+      statusBarBrightness: Brightness.light,
+      statusBarIconBrightness: Brightness.dark,
+    ));
+  }
 }
 
 class MyApp extends StatelessWidget {
