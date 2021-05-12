@@ -1,5 +1,6 @@
 import 'package:demo01/pages/account/account_page.dart';
 import 'package:demo01/pages/alerts/alerts_page.dart';
+import 'package:demo01/pages/components/iconfont.dart';
 import 'package:demo01/pages/home/home_page.dart';
 import 'package:demo01/pages/posts/posts_page.dart';
 import 'package:flutter/material.dart';
@@ -31,19 +32,19 @@ class DashboardPage extends StatelessWidget{
           type: BottomNavigationBarType.fixed,
           items: [
             BottomNavigationBarItem(
-              icon: Icon(Icons.home),
-              label: "主页1",
+              icon: Icon(IconFont.icon_home),
+              label: "主页",
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.local_post_office),
+              icon: Icon(IconFont.icon_favor),
               label: "帖子",
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.add_alert),
-              label: "警告",
+              icon: Icon(IconFont.icon_community),
+              label: "消息",
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.person),
+              icon: Icon(IconFont.icon_people),
               label: "我的",
             ),
           ],

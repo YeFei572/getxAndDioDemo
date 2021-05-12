@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:demo01/routes/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -6,14 +8,20 @@ import 'package:get/get.dart';
 
 import 'routes/app_routes.dart';
 import 'themes/app_theme.dart';
+import 'window_size_service.dart';
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  if (Platform.isWindows || Platform.isLinux || Platform.isMacOS) {
+    final WindowSizeService windowSizeService = WindowSizeService();
+    windowSizeService.initialize();
+  }
+  runApp(MyApp());
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
     statusBarColor: Colors.white,
     statusBarBrightness: Brightness.light,
     statusBarIconBrightness: Brightness.dark,
   ));
-  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {

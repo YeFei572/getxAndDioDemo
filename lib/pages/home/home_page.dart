@@ -18,13 +18,10 @@ class HomePage extends GetView<HomeController> {
               onTap: controller.changeType,
               indicatorColor: Colors.blueAccent,
               labelColor: Colors.black,
+              physics: NeverScrollableScrollPhysics(),
               tabs: [
-                Tab(
-                  text: "Fish",
-                ),
-                Tab(
-                  text: "Feed",
-                ),
+                Tab(text: "Fish"),
+                Tab(text: "Feed"),
               ],
             ),
           ),
@@ -47,6 +44,15 @@ class HomePage extends GetView<HomeController> {
         padding: EdgeInsets.all(ScreenUtil().setWidth(30)),
         child: EasyRefresh(
           controller: controller.refreshController,
+          header: ClassicalHeader(
+            enableHapticFeedback: false,
+            refreshReadyText: "刷新",
+            refreshedText: "刷新完毕！",
+            refreshFailedText: "刷新失败",
+            refreshingText: "刷新中。。。。",
+            infoText: "更新于%T",
+            completeDuration: Duration(milliseconds: 100),
+          ),
           onRefresh: () async {
             controller.page = 1;
             controller.currentIndex == 0
