@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:get/route_manager.dart';
+import 'package:get_storage/get_storage.dart';
 
 /*Future setToken(Dio dio) async {
   SharedPreferences sp = await SharedPreferences.getInstance();
@@ -11,15 +12,23 @@ import 'package:get/route_manager.dart';
 }*/
 
 // 携带token的请求
-Future request4GetWithToken(String urlPath, {queryParameters}) async {
+Future request4GetWithToken(String urlPath, {queryParameters, headers}) async {
   try {
     Dio dio = new Dio();
-    // SharedPreferences sp = await SharedPreferences.getInstance();
-    dio.options.headers = {
-      'Content-type': 'content',
-      // 'Authorization': 'Bearer ' + sp.getString('token'),
-    };
+    if (headers == null || headers['headers'] == '') {
+      dio.options.headers = {
+        'Content-type': 'application/json'
+      };
+    } else {
+      dio.options.headers = {
+        'Content-type': 'application/json',
+        'Authorization': 'Bearer ' + headers['Authorization'],
+      };
+    }
+
+    // dio.options.headers = headers;
     print('请求开始: ==============> $urlPath}');
+    print('请求头: ==============> $headers}');
     Response response;
     if (queryParameters == null) {
       response = await dio.get(urlPath).timeout(Duration(seconds: 10));
@@ -46,7 +55,7 @@ Future request4PostWithToken(String urlPath,
     Dio dio = new Dio();
     // SharedPreferences sp = await SharedPreferences.getInstance();
     dio.options.headers = {
-      'Content-type': 'content',
+      'Content-type': 'application/json',
       // 'Authorization': 'Bearer ' + sp.getString('token'),
       // 'User-Agent':'okhttp/3.12.0',
       // 'version':'1.3.4'

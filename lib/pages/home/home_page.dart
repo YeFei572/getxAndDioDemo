@@ -1,3 +1,4 @@
+import 'package:demo01/pages/components/keep_alive_wrapper.dart';
 import 'package:demo01/pages/components/loading_overlay.dart';
 import 'package:demo01/pages/home/home_controller.dart';
 import 'package:flutter/cupertino.dart';
@@ -18,7 +19,6 @@ class HomePage extends GetView<HomeController> {
               onTap: controller.changeType,
               indicatorColor: Colors.blueAccent,
               labelColor: Colors.black,
-              physics: NeverScrollableScrollPhysics(),
               tabs: [
                 Tab(text: "Fish"),
                 Tab(text: "Feed"),
@@ -27,9 +27,10 @@ class HomePage extends GetView<HomeController> {
           ),
           body: Container(
             child: TabBarView(
+              physics: NeverScrollableScrollPhysics(),
               children: [
-                buildItemPage(controller, context),
-                buildItemPage(controller, context),
+                KeepAliveWrapper(child: buildItemPage(controller, context)),
+                KeepAliveWrapper(child: buildItemPage(controller, context)),
               ],
             ),
           ),
@@ -53,21 +54,8 @@ class HomePage extends GetView<HomeController> {
             infoText: "更新于%T",
             completeDuration: Duration(milliseconds: 100),
           ),
-          onRefresh: () async {
-            controller.page = 1;
-            controller.currentIndex == 0
-                ? controller.getFishList()
-                : controller.getFeedList();
-            controller.currentIndex == 0
-                ? controller.fishList.clear()
-                : controller.feedList.clear();
-          },
-          onLoad: () async {
-            controller.page++;
-            controller.currentIndex == 0
-                ? controller.getFishList()
-                : controller.getFeedList();
-          },
+          onRefresh: controller.refreshPage,
+          onLoad: controller.loadPage,
           child: LoadingOverlay(
             isLoading: controller.isLoading,
             child: SingleChildScrollView(

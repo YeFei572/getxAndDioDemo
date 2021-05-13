@@ -1,28 +1,28 @@
-/// id : "5e130f863b1b637545229a40"
+/// id : "5e130b473b1b637545229a37"
 /// userId : "5adfd2da3b1b6304ffc998d0"
-/// title : "【现货】JC工作室 作品：1/4三档路飞"
-/// iconUrl : "123123"
+/// title : "【现货】潘多拉 作品：典狱长—毒龙麦哲伦"
+/// iconUrl : "http://moyutang.oss-cn-shenzhen.aliyuncs.com/works/images/bolckymods-123.1525785472634.jpg"
 /// userName : "摸鱼塘塘主"
-/// desc : "尺寸：总高1.1米"
-/// totalAmount : 42000.0
-/// coverPic : "http://moyutang.oss-cn-shenzhen.aliyuncs.com/works/images/22308424.1578307293793.png"
+/// desc : "尺寸：高55，宽55，深60"
+/// totalAmount : 27200.0
+/// coverPic : "http://moyutang.oss-cn-shenzhen.aliyuncs.com/works/images/22308424.1578306318881.png"
 /// tags : ["123"]
-/// maturity : 40.0
+/// maturity : 37.5
 /// favorites : 0
-/// startAt : 1578307274461
+/// startAt : 1578306299178
 /// endAt : 1609862400000
-/// createAt : 1578307462743
+/// createAt : 1578306375246
 /// status : "finished"
 /// type : "cartoon"
-/// works : ["http://moyutang.oss-cn-shenzhen.aliyuncs.com/works/images/22308424.1578307301461.png"]
-/// reciprocationList : ["http://moyutang.oss-cn-shenzhen.aliyuncs.com/works/images/22308424.1578307304764.png"]
+/// works : ["http://moyutang.oss-cn-shenzhen.aliyuncs.com/works/images/22308424.1578306328906.png"]
+/// reciprocationList : ["http://moyutang.oss-cn-shenzhen.aliyuncs.com/works/images/22308424.1578306332554.png"]
 /// hasFollow : false
 /// hasFavorite : false
-/// daysToProduct : 2
-/// designerType : "cartoon"
+/// daysToProduct : 32
+/// designerType : "normal"
 /// accessStatus : 0
-/// userCount : 1
-/// minPrice : 4200.0
+/// userCount : 3
+/// minPrice : 3400.0
 
 class Feed {
   String? _id;
