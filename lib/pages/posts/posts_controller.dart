@@ -1,3 +1,4 @@
+import 'package:demo01/library/http_client.dart';
 import 'package:demo01/models/post.dart';
 import 'package:demo01/pages/posts/posts_service.dart';
 import 'package:get/get.dart';
@@ -9,7 +10,7 @@ class PostsController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-   /* PostsService().getPostsList(
+    /* PostsService().getPostsList(
       onSuccess: (posts) {
         print('==========> ${posts.length}');
         posts.map((e) => print(e.title));
@@ -22,5 +23,10 @@ class PostsController extends GetxController {
         update();
       },
     );*/
+    HttpClient()
+        .get("https://jsonplaceholder.typicode.com/posts")
+        .then((value) {
+      print("----------------${value.toString()}");
+    });
   }
 }
