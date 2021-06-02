@@ -114,7 +114,7 @@ packages:
     source: hosted
     version: "6.1.0"
   fixnum:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: fixnum
       url: "https://pub.flutter-io.cn"
@@ -270,6 +270,20 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "2.0.0"
+  quick_actions:
+    dependency: "direct main"
+    description:
+      name: quick_actions
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "0.6.0+2"
+  quick_actions_platform_interface:
+    dependency: transitive
+    description:
+      name: quick_actions_platform_interface
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "1.0.0"
   sky_engine:
     dependency: transitive
     description: flutter
@@ -370,4 +384,4 @@ packages:
     version: "0.2.0"
 sdks:
   dart: ">=2.12.0 <3.0.0"
-  flutter: ">=1.24.0"
+  flutter: ">=2.0.0"

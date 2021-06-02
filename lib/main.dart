@@ -1,3 +1,5 @@
+// @dart=2.12
+// ^ This can be any version < 2.12
 import 'dart:io';
 
 import 'package:demo01/routes/app_pages.dart';

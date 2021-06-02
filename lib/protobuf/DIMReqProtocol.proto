@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+//option java_package = "com.crossoverjie.dim.common.protocol";
+//option java_outer_classname = "DIMRequestProto";
+
+message DIMReqProtocol {
+    //发送者Id
+    string fromId = 1;
+    //接收者Id
+    string toId = 2;
+    int64 requestId = 3;
+    //接收信息内容
+    string reqMsg = 4;
+    //消息内容
+    int32 type = 5;
+    //发送消息时间
+    int64 timestamp = 6;
+    //群Id
+    string groupId = 7;
+    //群at对象
+    string groupAt = 8;
+
+}
+
+
