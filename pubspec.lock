@@ -125,6 +125,15 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_cupertino_date_picker:
+    dependency: "direct main"
+    description:
+      path: "."
+      ref: HEAD
+      resolved-ref: "6af702db17357606f47aa57b8af08dd8e4a6f64d"
+      url: "git@github.com:winteragency/flutter-cupertino-date-picker.git"
+    source: git
+    version: "1.0.26+2"
   flutter_easyrefresh:
     dependency: "direct main"
     description:
