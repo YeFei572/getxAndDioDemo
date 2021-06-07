@@ -39,9 +39,9 @@ dependencies:
   fixnum: ^1.0.0
   quick_actions: ^0.6.0+2
   # 日期组建
-  flutter_cupertino_date_picker:
-    git:
-      url: git@github.com:winteragency/flutter-cupertino-date-picker.git
+#  flutter_cupertino_date_picker:
+#    git:
+#      url: git@github.com:winteragency/flutter-cupertino-date-picker.git
   window_size:
     git:
       url: git://github.com/google/flutter-desktop-embedding.git

@@ -3,7 +3,7 @@ import 'package:demo01/pages/components/loading_overlay.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:flutter_cupertino_date_picker/flutter_cupertino_date_picker.dart';
+// import 'package:flutter_cupertino_date_picker/flutter_cupertino_date_picker.dart';
 
 class AlertsPage extends GetView<AlertsController> {
   String _format = 'yyyy年-M月-d日';
@@ -64,7 +64,7 @@ class AlertsPage extends GetView<AlertsController> {
                                         mainAxisAlignment:
                                             MainAxisAlignment.spaceBetween,
                                         children: [
-                                          Container(
+                                         /* Container(
                                             width: 230,
                                             child: DateTimePickerWidget(
                                               dateFormat: _format,
@@ -85,7 +85,7 @@ class AlertsPage extends GetView<AlertsController> {
                                                 showTitle: false,
                                               ),
                                             ),
-                                          ),
+                                          ),*/
                                         ],
                                       ),
                                     ),

@@ -4,10 +4,17 @@ import 'package:get/get.dart';
 
 class AccountPage extends GetView<AccountController> {
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Text("我的"),
-      ),
+    return GetBuilder<AccountController>(
+      builder: (controller) {
+        return Scaffold(
+          body: Center(
+            child: ElevatedButton(
+              child: Text('测试发送'),
+              onPressed: controller.sendTestMsg
+            ),
+          ),
+        );
+      },
     );
   }
 }
