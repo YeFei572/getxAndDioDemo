@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:developer';
 import 'dart:io';
 import 'dart:typed_data';
@@ -44,7 +45,14 @@ class SocketClient {
   }
 
   void decodeHandler(data) {
-    log(data);
+
+    Int8List int8Data = Int8List.fromList(data);
+    Int8List contentTypeInt8Data = int8Data.sublist(0, 2);
+    Int8List contentInt8Data = int8Data.sublist(2, int8Data.length);
+    int contentType = contentTypeInt8Data.elementAt(0);
+   /* var let = DIMReqProtocol.fromBuffer(contentInt8Data);
+    DIMReqProtocol.fromBuffer(int8Data.sublist(21, int8Data.length))
+    log("====================))))), ${let}");*/
   }
 
   void errorHandler(error, StackTrace trace) {
