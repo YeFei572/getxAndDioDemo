@@ -11,22 +11,18 @@ import 'dashboard_controller.dart';
 class DashboardPage extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
-    ThemeData theme = Theme.of(context);
     return GetBuilder<DashboardController>(builder: (controller) {
       return Scaffold(
-        body: SafeArea(
-          child: IndexedStack(
-            index: controller.tabIndex,
-            children: [
-              HomePage(),
-              PostsPage(),
-              AlertsPage(),
-              AccountPage(),
-            ],
-          ),
+        body: IndexedStack(
+          index: controller.tabIndex,
+          children: [
+            HomePage(),
+            PostsPage(),
+            AlertsPage(),
+            AccountPage(),
+          ],
         ),
         bottomNavigationBar: BottomNavigationBar(
-          fixedColor: theme.primaryColor,
           onTap: controller.changeTabIndex,
           currentIndex: controller.tabIndex,
           type: BottomNavigationBarType.fixed,

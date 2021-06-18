@@ -15,11 +15,14 @@ import 'window_size_service.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  if (Platform.isWindows || Platform.isLinux || Platform.isMacOS) {
+  /*if (Platform.isWindows || Platform.isLinux || Platform.isMacOS) {
     final WindowSizeService windowSizeService = WindowSizeService();
     windowSizeService.initialize();
-  }
-  await GetStorage.init();
+  }*/
+
+  /// 初始化一些配置
+  await initConfig();
+
   runApp(MyApp());
   if (Platform.isAndroid) {
     // 以下两行 设置android状态栏为透明的沉浸。写在组件渲染之后，是为了在渲染后进行set赋值，覆盖状态栏，写在渲染之前MaterialApp组件会覆盖掉这个值。
@@ -27,6 +30,11 @@ void main() async {
     SystemUiOverlayStyle(statusBarColor: Colors.transparent);
     SystemChrome.setSystemUIOverlayStyle(systemUiOverlayStyle);
   }
+}
+
+Future<void> initConfig() async {
+
+  await GetStorage.init();
 }
 
 class MyApp extends StatelessWidget {

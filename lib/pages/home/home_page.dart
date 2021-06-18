@@ -18,8 +18,6 @@ class HomePage extends GetView<HomeController> {
           appBar: AppBar(
             title: TabBar(
               onTap: controller.changeType,
-              indicatorColor: Colors.blueAccent,
-              labelColor: Colors.black,
               tabs: [
                 Tab(text: "Fish"),
                 Tab(text: "Feed"),
