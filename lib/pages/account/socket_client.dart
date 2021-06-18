@@ -20,14 +20,14 @@ class SocketClient {
   SocketClient({this.host, this.port});
 
   void init() async {
-    try {
-      socket = await Socket.connect(host, port!, timeout: Duration(seconds: 2));
-    } catch (e) {
-      print("链接socket出现异常，e=${e.toString()}");
-    }
-    sendMsg(_socketLogin("10000", "feige"));
-    socket!.listen(decodeHandler,
-        onError: errorHandler, onDone: doneHandler, cancelOnError: false);
+    // try {
+    //   socket = await Socket.connect(host, port!, timeout: Duration(seconds: 2));
+    // } catch (e) {
+    //   print("链接socket出现异常，e=${e.toString()}");
+    // }
+    // sendMsg(_socketLogin("10000", "feige"));
+    // socket!.listen(decodeHandler,
+    //     onError: errorHandler, onDone: doneHandler, cancelOnError: false);
   }
 
   _socketLogin(String userId, String userName) {
