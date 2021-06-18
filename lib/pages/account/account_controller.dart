@@ -1,6 +1,10 @@
+import 'package:demo01/library/constant.dart';
 import 'package:demo01/pages/account/socket_client.dart';
 import 'package:demo01/protobuf/DIMReqProtocol.pb.dart';
+import 'package:demo01/themes/app_theme.dart';
+import 'package:demo01/utils/get_store_util.dart';
 import 'package:fixnum/fixnum.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'dart:io';
 
@@ -28,13 +32,33 @@ class AccountController extends GetxController {
   sendTestMsg() {
     DIMReqProtocol protocol = new DIMReqProtocol();
     protocol.fromId = "10000";
-    protocol.timestamp= Int64(0);
+    protocol.timestamp = Int64(0);
     protocol.type = 2;
     protocol.reqMsg = "这是消息内容";
     protocol.toId = "10000";
     print("<<<<<<<<<<<<<");
+
     /// 八进制的消息
     ///
     socketClient.sendMsg(protocol);
+  }
+
+  Future<void> changeThemeMode() async {
+    if (StoreUtils.store.hasData(Constant.theme)) {
+      ThemeData updatedTheme = StoreUtils.store.read(Constant.theme) == "light"
+          ? AppTheme.dark
+          : AppTheme.light;
+      Get.changeTheme(updatedTheme);
+      StoreUtils.store.write(
+          Constant.theme, updatedTheme == AppTheme.light ? "light" : "dark");
+      return;
+    }
+    if (Get.theme.primaryColor == Colors.pinkAccent) {
+      Get.changeTheme(AppTheme.dark);
+      StoreUtils.store.write(Constant.theme, "dark");
+    } else {
+      Get.changeTheme(AppTheme.light);
+      StoreUtils.store.write(Constant.theme, "light");
+    }
   }
 }

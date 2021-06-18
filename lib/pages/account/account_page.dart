@@ -13,11 +13,12 @@ class AccountPage extends GetView<AccountController> {
             title: Text('我的'),
             leading: IconButton(
               icon: Icon(CupertinoIcons.switch_camera_solid),
-              onPressed: () {
+              /*onPressed: () {
                 Get.theme.primaryColor == Colors.pinkAccent
                     ? Get.changeTheme(AppTheme.dark)
                     : Get.changeTheme(AppTheme.light);
-              },
+              },*/
+              onPressed: controller.changeThemeMode,
             ),
           ),
           body: Center(
