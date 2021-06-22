@@ -1,32 +1,14 @@
-import 'package:demo01/library/http_client.dart';
-import 'package:demo01/models/post.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class PostsController extends GetxController {
-  List<Post> postsList = [];
-  bool isLoading = true;
+  bool isLoading = false;
+  Key opacityKey = Key("opacityKey");
+  final int DEFAULT_SCROLLER = 300;
+  RxDouble toolbarOpacity = 0.0.obs;
 
   @override
   void onInit() {
     super.onInit();
-    /* PostsService().getPostsList(
-      onSuccess: (posts) {
-        print('==========> ${posts.length}');
-        posts.map((e) => print(e.title));
-        postsList.addAll(posts);
-        isLoading = false;
-        update();
-      },
-      onError: (error) {
-        isLoading = false;
-        update();
-      },
-    );
-    HttpClient()
-        .get("https://jsonplaceholder.typicode.com/posts")
-        .then((value) {
-        print("________________isBlank");
-
-    });*/
   }
 }

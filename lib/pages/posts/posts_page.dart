@@ -1,35 +1,82 @@
-import 'package:demo01/pages/components/loading_overlay.dart';
 import 'package:demo01/pages/posts/posts_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 class PostsPage extends GetView<PostsController> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('帖子页面'),
-      ),
-      body: Container(
-        child: GetBuilder<PostsController>(
-          builder: (controller) {
-            return LoadingOverlay(
-                isLoading: controller.isLoading,
+    return GetBuilder<PostsController>(builder: (controller) {
+      return Scaffold(
+        body: Stack(
+          children: <Widget>[
+            MediaQuery.removePadding(
+              removeTop: true,
+              context: context,
+              child: NotificationListener(
+                onNotification: (notification) {
+                  if (notification is ScrollUpdateNotification &&
+                      notification.depth == 0) {
+                    double t = notification.metrics.pixels /
+                        controller.DEFAULT_SCROLLER;
+                    if (t < 0.0) {
+                      t = 0.0;
+                    } else if (t > 1.0) {
+                      t = 1.0;
+                    }
+                    if (t == 1.0) {
+
+                    }
+                    print(t);
+                    controller.toolbarOpacity.value = t;
+                  }
+                  return true;
+                },
                 child: ListView.separated(
-                  itemCount: controller.postsList.length,
+                  itemCount: 1000,
                   itemBuilder: (context, index) {
+                    print("列表重新构建！");
                     return Container(
-                        child: ListTile(
-                            title: Text(controller.postsList[index].title!),
-                            subtitle: Text(controller.postsList[index].body!)));
+                      child: ListTile(
+                        title: Text(
+                          "这是标题" + index.toString(),
+                          style: TextStyle(color:  Get.theme.textTheme.bodyText2!.color),
+                        ),
+                        subtitle: Text(
+                          "这是副标题" + index.toString(),
+                          style: TextStyle(color:  Get.theme.textTheme.bodyText2!.color),
+                        ),
+                      ),
+                    );
                   },
                   separatorBuilder: (context, index) {
                     return Divider();
                   },
-                ));
-          },
+                ),
+              ),
+            ),
+            Obx(
+              () => Opacity(
+                // key: controller.opacityKey,
+                opacity: controller.toolbarOpacity.value,
+                child: Container(
+                  color:  Get.theme.primaryColor,
+                  height: 100.w,
+                  child: Padding(
+                    padding: EdgeInsets.only(top: 30.0.w),
+                    child: Center(
+                      child: Text(
+                        "NotificationListenerDemo",
+                        style: TextStyle(color: Colors.white, fontSize: 20.0),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ],
         ),
-      ),
-    );
+      );
+    });
   }
 }
