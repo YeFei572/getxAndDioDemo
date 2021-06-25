@@ -9,65 +9,20 @@ class AlertsPage extends GetView<AlertsController> {
   Widget build(BuildContext context) {
     return GetBuilder<AlertsController>(
       builder: (controller) => Scaffold(
-        body: Stack(
-          children: <Widget>[
-            MediaQuery.removePadding(
-              removeTop: true,
-              context: context,
-              child: ListView.separated(
-                controller: controller.scrollController,
-                itemCount: 200,
-                itemBuilder: (ctx, int index) {
-                  if (index == 0) {
-                    return Container(
-                      height: 300.w,
-                      color: Colors.yellowAccent.withOpacity(0.3),
-                    );
-                  }
-                  return Container(
-                    height: 100.w,
-                    color: Colors.pinkAccent.withOpacity(0.3),
-                  );
-                },
-                separatorBuilder: (BuildContext context, int index) {
-                  return Container(
-                    height: 20.w,
-                    color: Colors.white,
-                  );
-                },
-              ),
-            ),
-            Obx(()=>Opacity(
-              opacity: controller.toolbarOpacity.value,
-              child: Container(
-                height: 98.w,
-                color: Colors.blue,
-                child: Padding(
-                  padding: EdgeInsets.only(top: 30.w),
-                  child: Center(
-                    child: Text(
-                      "scroll demo",
-                      style: TextStyle(color: Colors.black, fontSize: 32.sp),
-                    ),
-                  ),
-                ),
-              ),
-            ),)
-          ],
+        appBar: AppBar(
+          title: _buildSearchInput(),
+          actions: _buildActions(),
         ),
-        floatingActionButton: !controller.showToTopBtn
-            ? null
-            : FloatingActionButton(
-                child: Icon(
-                  Icons.keyboard_arrow_up,
-                  color: Colors.blue,
-                ),
-                onPressed: () {
-                  controller.scrollController.animateTo(0.0,
-                      duration: Duration(milliseconds: 500),
-                      curve: Curves.ease);
-                },
-              ),
+        body: Center(
+          // child: Container(
+          //   width: 700.w,
+          //   height: 500.w,
+          //   child: ClipRRect(
+          //     child: Image.network("https://files.catbox.moe/ybddsq.jpg",fit: BoxFit.fitWidth,),
+          //     borderRadius: BorderRadius.circular(60.w),
+          //   ),
+          // ),
+        ),
       ),
     );
   }
@@ -75,17 +30,18 @@ class AlertsPage extends GetView<AlertsController> {
   List<Widget> _buildActions() {
     return [
       TextButton.icon(
-          onPressed: () {
-            Get.toNamed(AppRoutes.SECOND_PAGE);
-          },
-          icon: Icon(
-            Icons.next_plan_outlined,
-            color: Colors.white,
-          ),
-          label: Text(
-            "视频demo",
-            style: TextStyle(color: Colors.white),
-          ))
+        onPressed: () {
+          Get.toNamed(AppRoutes.SECOND_PAGE);
+        },
+        icon: Icon(
+          Icons.next_plan_outlined,
+          color: Colors.white,
+        ),
+        label: Text(
+          "视频demo",
+          style: TextStyle(color: Colors.white),
+        ),
+      )
     ];
   }
 
@@ -99,19 +55,20 @@ class AlertsPage extends GetView<AlertsController> {
       ),
       child: Form(
         child: TextFormField(
+          style: TextStyle(color: Colors.black54),
           decoration: InputDecoration(
             contentPadding: EdgeInsets.symmetric(vertical: 0),
             hintText: "请输入关键词",
             fillColor: Color(0xffF4F6F8),
             filled: true,
-            hintStyle: TextStyle(fontSize: 24.sp, color: Colors.black54),
+            hintStyle: TextStyle(fontSize: 24.sp, color: Colors.black45),
             focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(25.w),
-              borderSide: BorderSide(color: Colors.pinkAccent),
+              borderSide: BorderSide(color: Get.theme.primaryColor),
             ),
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(25.w),
-              borderSide: BorderSide(color: Colors.pinkAccent),
+              borderSide: BorderSide(color: Get.theme.primaryColor),
             ),
             enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(25.w),

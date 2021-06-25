@@ -12,11 +12,6 @@ class AccountPage extends GetView<AccountController> {
             title: Text('我的'),
             leading: IconButton(
               icon: Icon(CupertinoIcons.switch_camera_solid),
-              /*onPressed: () {
-                Get.theme.primaryColor == Colors.pinkAccent
-                    ? Get.changeTheme(AppTheme.dark)
-                    : Get.changeTheme(AppTheme.light);
-              },*/
               onPressed: controller.changeThemeMode,
             ),
           ),
@@ -24,7 +19,8 @@ class AccountPage extends GetView<AccountController> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Text("两个文件需要试用一下， 一是ttf文件，在第2步中直接引入即可。另外一个css文件转化成dart文件，用一个网站转就可以了 https://xwrite.gitee.io/blog/"),
+                Text(
+                    "两个文件需要试用一下， 一是ttf文件，在第2步中直接引入即可。另外一个css文件转化成dart文件，用一个网站转就可以了 https://xwrite.gitee.io/blog/"),
                 Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(15),
@@ -45,6 +41,10 @@ class AccountPage extends GetView<AccountController> {
                     onPressed: controller.sendTestMsg,
                   ),
                 ),
+                IconButton(
+                    onPressed: controller.initSocket,
+                    icon:
+                        Icon(Icons.insert_invitation, color: Colors.pinkAccent))
               ],
             ),
           ),

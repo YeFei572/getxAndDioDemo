@@ -38,7 +38,7 @@ dependencies:
   protobuf: ^2.0.0
   fixnum: ^1.0.0
   quick_actions: ^0.6.0+2
-  better_player: ^0.0.69
+  better_player: ^0.0.70
 
   # 日期组建
 #  flutter_cupertino_date_picker:

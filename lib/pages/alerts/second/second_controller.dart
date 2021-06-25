@@ -8,6 +8,10 @@ class SecondController extends GetxController {
 
   late BetterPlayerController betterPlayerController;
 
+  late Offset startPosition; // 起始位置
+  late double movePan; // 偏移累计量总和
+  Duration position = Duration(seconds: 0); // 当前时间
+
   @override
   void onInit() {
     BetterPlayerDataSource betterPlayerDataSource = BetterPlayerDataSource(
@@ -15,15 +19,27 @@ class SecondController extends GetxController {
       videoPath,
     );
     betterPlayerController = BetterPlayerController(
-        BetterPlayerConfiguration(
-          autoPlay: true,
-          subtitlesConfiguration: BetterPlayerSubtitlesConfiguration(),
-          controlsConfiguration: BetterPlayerControlsConfiguration(
-            controlBarColor: Colors.black87.withOpacity(0.2),
-            skipBackIcon: Icons.arrow_back_ios_outlined,
-          ),
+      BetterPlayerConfiguration(
+        autoPlay: true,
+        subtitlesConfiguration: BetterPlayerSubtitlesConfiguration(),
+        controlsConfiguration: BetterPlayerControlsConfiguration(
+          enableMute: false,
+          controlBarColor: Colors.black87.withOpacity(0.1),
+          forwardSkipTimeInMilliseconds: 30000,
+          backwardSkipTimeInMilliseconds: 15000,
+          enablePlayPause: false,
+          controlsHideTime: Duration(seconds: 1),
+          playerTheme: BetterPlayerTheme.cupertino,
         ),
-        betterPlayerDataSource: betterPlayerDataSource);
+      ),
+      betterPlayerDataSource: betterPlayerDataSource,
+    );
     super.onInit();
+  }
+
+  Future<void> startHorizontal(DragStartDetails details) async {
+    Duration? videoDuration =
+        await betterPlayerController.videoPlayerController!.position;
+    betterPlayerController.seekTo(videoDuration! + Duration(seconds: 30));
   }
 }

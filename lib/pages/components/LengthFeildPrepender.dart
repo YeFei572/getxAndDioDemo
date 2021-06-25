@@ -35,6 +35,7 @@ class LengthFieldPrepender {
           throw ArgumentError(
               "length does not fit into a short integer: $length");
         }
+        return msgBuffer;
         var header = ByteData(2);
         header.setInt16(0, length);
         return header.buffer.asUint8List() + msgBuffer;

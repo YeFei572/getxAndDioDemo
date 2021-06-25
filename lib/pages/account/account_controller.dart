@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:demo01/library/constant.dart';
 import 'package:demo01/pages/account/socket_client.dart';
 import 'package:demo01/protobuf/DIMReqProtocol.pb.dart';
@@ -6,7 +8,6 @@ import 'package:demo01/utils/get_store_util.dart';
 import 'package:fixnum/fixnum.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'dart:io';
 
 //地址
 const String adress = '172.16.0.193';
@@ -34,7 +35,7 @@ class AccountController extends GetxController {
     protocol.fromId = "10000";
     protocol.timestamp = Int64(0);
     protocol.type = 2;
-    protocol.reqMsg = "这是消息内容";
+    protocol.reqMsg = "缓存的网络数据，暂未处理（通常这里有数据，说明当前接收的数据不是一个完整的消息，须要等待其它数据的到来拼凑成一个完整的消息）";
     protocol.toId = "10000";
     print("<<<<<<<<<<<<<");
 

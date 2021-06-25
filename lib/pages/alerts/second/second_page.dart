@@ -14,19 +14,23 @@ class SecondPage extends StatelessWidget {
         return Container(
           child: Column(
             children: [
-              AspectRatio(
-                aspectRatio: 16 / 9,
-                child: BetterPlayer(
-                  controller: controller.betterPlayerController,
+              GestureDetector(
+                onHorizontalDragStart: controller.startHorizontal,
+                child: AspectRatio(
+                  aspectRatio: 16 / 9,
+                  child: BetterPlayer(
+                    controller: controller.betterPlayerController,
+                  ),
                 ),
               ),
               Padding(
                 padding: EdgeInsets.all(20.w),
                 child: Align(
-                    alignment: Alignment.centerLeft,
-                    child: Text(
-                      "测试标题。。。。。。。。。。。。。。。",
-                    )),
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    "测试标题。。。。。。。。。。。。。。。",
+                  ),
+                ),
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,

@@ -35,7 +35,6 @@ class PostsPage extends GetView<PostsController> {
                 child: ListView.separated(
                   itemCount: 1000,
                   itemBuilder: (context, index) {
-                    print("列表重新构建！");
                     return Container(
                       child: ListTile(
                         title: Text(

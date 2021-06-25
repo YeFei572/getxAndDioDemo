@@ -14,7 +14,7 @@ packages:
       name: better_player
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "0.0.69"
+    version: "0.0.70"
   boolean_selector:
     dependency: transitive
     description:
