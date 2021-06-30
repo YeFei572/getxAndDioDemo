@@ -6,10 +6,10 @@ class AlertsController extends GetxController {
 
   String keyWord = "";
 
+
+
   @override
   void onInit() {
     super.onInit();
-
-    }
-
+  }
 }

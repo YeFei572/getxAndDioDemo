@@ -24,10 +24,7 @@ class PostsPage extends GetView<PostsController> {
                     } else if (t > 1.0) {
                       t = 1.0;
                     }
-                    if (t == 1.0) {
-
-                    }
-                    print(t);
+                    if (t == 1.0) {}
                     controller.toolbarOpacity.value = t;
                   }
                   return true;
@@ -37,13 +34,21 @@ class PostsPage extends GetView<PostsController> {
                   itemBuilder: (context, index) {
                     return Container(
                       child: ListTile(
-                        title: Text(
-                          "这是标题" + index.toString(),
-                          style: TextStyle(color:  Get.theme.textTheme.bodyText2!.color),
+                        title: InkWell(
+                        onTap: controller.test,
+                          child: Text(
+                            "这是标题" + index.toString(),
+                            style: TextStyle(
+                                color: Get.theme.textTheme.bodyText2!.color),
+                          ),
                         ),
-                        subtitle: Text(
-                          "这是副标题" + index.toString(),
-                          style: TextStyle(color:  Get.theme.textTheme.bodyText2!.color),
+                        subtitle: InkWell(
+                          onTap: controller.removeStorage,
+                          child: Text(
+                            "这是副标题" + index.toString(),
+                            style: TextStyle(
+                                color: Get.theme.textTheme.bodyText2!.color),
+                          ),
                         ),
                       ),
                     );
@@ -59,7 +64,7 @@ class PostsPage extends GetView<PostsController> {
                 // key: controller.opacityKey,
                 opacity: controller.toolbarOpacity.value,
                 child: Container(
-                  color:  Get.theme.primaryColor,
+                  color: Get.theme.primaryColor,
                   height: 100.w,
                   child: Padding(
                     padding: EdgeInsets.only(top: 30.0.w),

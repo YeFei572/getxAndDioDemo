@@ -1,4 +1,3 @@
-
 import 'package:dio/dio.dart';
 
 import 'app_dio.dart';
@@ -15,10 +14,10 @@ class HttpClient {
 
   Future<HttpResponse> get(String uri,
       {Map<String, dynamic>? queryParameters,
-        Options? options,
-        CancelToken? cancelToken,
-        ProgressCallback? onReceiveProgress,
-        HttpTransformer? httpTransformer}) async {
+      Options? options,
+      CancelToken? cancelToken,
+      ProgressCallback? onReceiveProgress,
+      HttpTransformer? httpTransformer}) async {
     try {
       var response = await _dio.get(
         uri,
@@ -35,12 +34,12 @@ class HttpClient {
 
   Future<HttpResponse> post(String uri,
       {data,
-        Map<String, dynamic>? queryParameters,
-        Options? options,
-        CancelToken? cancelToken,
-        ProgressCallback? onSendProgress,
-        ProgressCallback? onReceiveProgress,
-        HttpTransformer? httpTransformer}) async {
+      Map<String, dynamic>? queryParameters,
+      Options? options,
+      CancelToken? cancelToken,
+      ProgressCallback? onSendProgress,
+      ProgressCallback? onReceiveProgress,
+      HttpTransformer? httpTransformer}) async {
     try {
       var response = await _dio.post(
         uri,
@@ -59,12 +58,12 @@ class HttpClient {
 
   Future<HttpResponse> patch(String uri,
       {data,
-        Map<String, dynamic>? queryParameters,
-        Options? options,
-        CancelToken? cancelToken,
-        ProgressCallback? onSendProgress,
-        ProgressCallback? onReceiveProgress,
-        HttpTransformer? httpTransformer}) async {
+      Map<String, dynamic>? queryParameters,
+      Options? options,
+      CancelToken? cancelToken,
+      ProgressCallback? onSendProgress,
+      ProgressCallback? onReceiveProgress,
+      HttpTransformer? httpTransformer}) async {
     try {
       var response = await _dio.patch(
         uri,
@@ -83,10 +82,10 @@ class HttpClient {
 
   Future<HttpResponse> delete(String uri,
       {data,
-        Map<String, dynamic>? queryParameters,
-        Options? options,
-        CancelToken? cancelToken,
-        HttpTransformer? httpTransformer}) async {
+      Map<String, dynamic>? queryParameters,
+      Options? options,
+      CancelToken? cancelToken,
+      HttpTransformer? httpTransformer}) async {
     try {
       var response = await _dio.delete(
         uri,
@@ -103,10 +102,10 @@ class HttpClient {
 
   Future<HttpResponse> put(String uri,
       {data,
-        Map<String, dynamic>? queryParameters,
-        Options? options,
-        CancelToken? cancelToken,
-        HttpTransformer? httpTransformer}) async {
+      Map<String, dynamic>? queryParameters,
+      Options? options,
+      CancelToken? cancelToken,
+      HttpTransformer? httpTransformer}) async {
     try {
       var response = await _dio.put(
         uri,
@@ -123,13 +122,13 @@ class HttpClient {
 
   Future<Response> download(String urlPath, savePath,
       {ProgressCallback? onReceiveProgress,
-        Map<String, dynamic>? queryParameters,
-        CancelToken? cancelToken,
-        bool deleteOnError = true,
-        String lengthHeader = Headers.contentLengthHeader,
-        data,
-        Options? options,
-        HttpTransformer? httpTransformer}) async {
+      Map<String, dynamic>? queryParameters,
+      CancelToken? cancelToken,
+      bool deleteOnError = true,
+      String lengthHeader = Headers.contentLengthHeader,
+      data,
+      Options? options,
+      HttpTransformer? httpTransformer}) async {
     try {
       var response = await _dio.download(
         urlPath,

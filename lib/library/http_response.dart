@@ -16,7 +16,7 @@ class HttpResponse {
     this.ok = false;
   }
 
-  HttpResponse.failureFormResponse({dynamic? data}) {
+  HttpResponse.failureFormResponse({dynamic data}) {
     this.error = BadResponseException(data);
     this.ok = false;
   }

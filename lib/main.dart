@@ -13,18 +13,12 @@ import 'package:get_storage/get_storage.dart';
 import 'library/constant.dart';
 import 'routes/app_routes.dart';
 import 'themes/app_theme.dart';
-import 'window_size_service.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  /*if (Platform.isWindows || Platform.isLinux || Platform.isMacOS) {
-    final WindowSizeService windowSizeService = WindowSizeService();
-    windowSizeService.initialize();
-  }*/
 
   /// 初始化一些配置
   await initConfig();
-
   runApp(MyApp());
   if (Platform.isAndroid) {
     // 以下两行 设置android状态栏为透明的沉浸。写在组件渲染之后，是为了在渲染后进行set赋值，覆盖状态栏，写在渲染之前MaterialApp组件会覆盖掉这个值。

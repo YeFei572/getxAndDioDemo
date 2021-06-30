@@ -1,11 +1,11 @@
-import 'package:demo01/library/http_client.dart';
-import 'package:demo01/library/net_util.dart';
-import 'package:demo01/models/post.dart';
+import 'package:demo01/utils/net/pretty_http.dart';
 
 class PostsService {
-
-  // void getPostsList() {
-  //   request4GetWithToken("https://jsonplaceholder.typicode.com/posts").then(
-  //       (value) => {(value as List).map((e) => Post.fromJson(e)).toList()});
-  // }
+  Future test() async {
+    PrettyHttp.http(PrettyHttp.GET, "/api/v1/profiles/5ae04bea3b1b6304ffc999de",
+            beAuth: true)
+        .then((value) {
+      print(value.toString());
+    });
+  }
 }

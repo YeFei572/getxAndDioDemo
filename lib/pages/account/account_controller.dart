@@ -20,9 +20,7 @@ class AccountController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-
-    print("=================>>>>>>>>>>>>>>>>>>>");
-    this.initSocket();
+    // this.initSocket();
   }
 
   initSocket() async {
