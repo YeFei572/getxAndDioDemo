@@ -1,35 +1,35 @@
-import 'package:demo01/routes/app_pages.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
+import 'package:demo01/constants.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
+import 'package:demo01/pages/menu//menu_controller.dart';
+import 'package:demo01/pages/main/main_screen.dart';
 
-import 'routes/app_routes.dart';
-import 'themes/app_theme.dart';
 
-void main() async {
-  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-    statusBarColor: Colors.white,
-    statusBarBrightness: Brightness.light,
-    statusBarIconBrightness: Brightness.dark,
-  ));
+void main(){
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return ScreenUtilInit(
-      designSize: Size(750, 1334),
-      builder: () =>
-          GetMaterialApp(
-            initialRoute: AppRoutes.DASHBOARD,
-            getPages: AppPages.list,
-            debugShowCheckedModeBanner: false,
-            theme: AppTheme.light,
-            darkTheme: AppTheme.dark,
-            themeMode: ThemeMode.system,
-          ),
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Admin Panel',
+      theme: ThemeData.dark().copyWith(
+        scaffoldBackgroundColor: bgColor,
+        textTheme: GoogleFonts.poppinsTextTheme(
+          Theme.of(context).textTheme,
+        ).apply(bodyColor: Colors.white),
+        canvasColor: secondaryColor,
+      ),
+      home: MultiProvider(
+        providers: [
+          ChangeNotifierProvider(create: (context) => MenuController()),
+        ],
+        child: MainScreen(),
+      ),
     );
+
   }
 }
