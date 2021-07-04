@@ -17,8 +17,8 @@ class DashboardPage extends StatelessWidget{
           child: IndexedStack(
             index: controller.tabIndex,
             children: [
-              HomePage(),
               PostsPage(),
+              HomePage(),
               AlertsPage(),
               AccountPage(),
             ],
