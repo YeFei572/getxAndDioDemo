@@ -13,15 +13,32 @@ class AlertsPage extends GetView<AlertsController> {
           title: _buildSearchInput(),
           actions: _buildActions(),
         ),
-        body: Center(
-          // child: Container(
-          //   width: 700.w,
-          //   height: 500.w,
-          //   child: ClipRRect(
-          //     child: Image.network("https://files.catbox.moe/ybddsq.jpg",fit: BoxFit.fitWidth,),
-          //     borderRadius: BorderRadius.circular(60.w),
-          //   ),
-          // ),
+        body: InkWell(
+          onTap: controller.skip,
+          child: Container(
+            decoration: BoxDecoration(border: Border.all(color: Colors.red)),
+            // child: Container(
+            //   width: 700.w,
+            //   height: 500.w,
+            //   child: ClipRRect(
+            //     child: Image.network("https://files.catbox.moe/ybddsq.jpg",fit: BoxFit.fitWidth,),
+            //     borderRadius: BorderRadius.circular(60.w),
+            //   ),
+            // ),
+            width: 100.w,
+            height: 100.w,
+            child: Obx(() {
+              return Stack(
+                alignment: Alignment.center,
+                children: [
+                  CircularProgressIndicator(
+                    value: controller.currentTime / 5000,
+                  ),
+                  Text("${controller.currentTime ~/ 1000}")
+                ],
+              );
+            }),
+          ),
         ),
       ),
     );
