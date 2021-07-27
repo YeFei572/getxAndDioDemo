@@ -21,7 +21,6 @@ class AlertsController extends GetxController {
       if (currentTime.value >= 5000) {
         timer.cancel();
       }
-      print(currentTime.value);
     });
   }
 
